@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Fleet</title>
+   <link href="./dist/output.css" rel="stylesheet">
+
+
+    <!---FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"/>
+
+    <!---FAVICON-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+     />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+          <!-- Leaflet CSS -->
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      />
+
+        <!-- Leaflet JS -->
+        <script
+          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          defer
+        ></script>
+  </head>
+  <body>
+    <header class="bg-black text-white">
+      <nav
+        class="container flex items-center justify-between p-10 font-poppins"
+      >
+        <div class="logo">
+          <a href="../dist/index.html">
+            <div class="flex gap-2 items-center">
+              <img
+                src="../assets/images/Frame.svg"
+                alt="Web Fleet Logo"
+                class="h-6 w-9 md:h-9 md:w-15 lg:h-10 lg:w-14"
+              />
+              <span class="md:text-lg">Web Fleet</span>
+            </div>
+          </a>
+        </div>
+        <ul class="flex items-center gap-6 text-sm md:text-base lg:text-xl">
+          <li><a href="../dist/index.html">Home</a></li>
+          <li><a href="#">Our services</a></li>
+          <li><a href="#">Fleets</a></li>
+          <li><a href="#">About</a></li>
+          <button class="bg-white text-black px-4 py-2 rounded">
+            <a href="#">Book now</a>
+          </button>
+        </ul>
+      </nav>
+
+      <!--HERO SECTION-->
+      <div class="hero flex justify-center items-center flex-col mt-20">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold text-center font-fredoka "
+        >
+          Discover the world on wheels <br class="hidden md:block" />with our
+          car rental service
+        </h1>
+        <img src="../assets/images/Group 1.png" alt="Car Rental Service" />
+      </div>
+
+     <!-- HERO BOX -->
+  <div class="flex flex-col items-center">
+  <div class="hero-box text-text bg-white w-4/5 px-5 py-6 mb-[30px] rounded-xl shadow-lg flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+    <!-- Location Select -->
+    <div class="flex flex-col w-full md:w-auto">
+      <label for="location" class="text-black mb-1">Location</label>
+      <div class="relative">
+        <select
+          name="location"
+          id="location"
+          class="appearance-none w-full border border-accent rounded-lg py-2 px-4 pr-10 text-gray-900
+                 focus:outline-none focus:shadow-[0_0_3px_1px_#2e2e2e] transition"
+        >
+          <option value="">Select a location</option>
+          <option value="Lagos">Lagos</option>
+          <option value="Kano">Kano</option>
+          <option value="Abuja">Abuja</option>
+          <option value="Warri">Warri</option>
+          <option value="Akure">Akure</option>
+          <option value="Calabar">Calabar</option>
+        </select>
+        <!-- Custom dropdown icon -->
+        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="hidden md:block md:bg-background md:w-[2.5px] md:h-16 md:rounded-xl" />
+
+    <!-- Pick Up Date -->
+    <div class="flex flex-col w-full md:w-auto">
+      <label for="pickup-date" class="text-black mb-1">Pick up</label>
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Pick up date"
+          id="pickup-date"
+          class="appearance-none w-full border border-accent rounded-lg py-2 px-4 pr-10 text-gray-900
+                 focus:outline-none focus:shadow-[0_0_3px_1px_#2e2e2e] transition"
+        />
+        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-500">
+          <!-- Calendar Icon -->
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="hidden md:block md:bg-background md:w-[2.5px] md:h-16 md:rounded-xl" />
+
+    <!-- Drop Off Date -->
+    <div class="flex flex-col w-full md:w-auto">
+      <label for="dropoff-date" class="text-black mb-1">Drop off</label>
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Drop off date"
+          id="dropoff-date"
+          class="appearance-none w-full border border-accent rounded-lg py-2 px-4 pr-10 text-gray-900
+                 focus:outline-none focus:shadow-[0_0_3px_1px_#2e2e2e] transition"
+        />
+        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-500">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Button -->
+    <button id="search-button" class="bg-black text-white px-16 py-2 rounded-lg mt-5">
+      Search
+    </button>
+  </div>
+  </div>
+    </div>
+    </header>
+
+
+  <main>
+
+    <!---BRAND SECTION--->
+     <section class="container  flex flex-wrap justify-center items-center gap-x-20 mt-10 mb-10">
+      <div>
+        <img src="../assets/images/Logo.svg.svg" alt="Honda Logo" class="mx-auto mt-10 mb-5 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" />
+      </div>
+      <div>
+        <img src="../assets/images/lexus_logo.svg.svg" alt="Lexus Logo" class="mx-auto mt-10 mb-5 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" />
+      </div>
+      <div>
+        <img src="../assets/images/Logo.svg (1).svg" alt="Toyota Logo" class="mx-auto mt-10 mb-5 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" />
+      </div>
+       <div>
+        <img src="../assets/images/Symbol.svg.svg" alt="Mercedes Logo" class="mx-auto mt-10 mb-5 w-16 h-16 md:w-18 md:h-18 lg:w-23 lg:h-23" />
+      </div>
+       <div>
+        <img src="../assets/images/Logo.svg (2).svg" alt="Tesla Logo" class="mx-auto mt-10 mb-5 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" />
+      </div>
+       <div>
+        <img src="../assets/images/bmw_logo.svg.svg" alt="BMW Logo" class="mx-auto mt-10 mb-5 w-16 h-16 md:w-18 md:h-18 lg:w-23 lg:h-23" />
+      </div>
+       <div>
+        <img src="../assets/images/ford_motor_company_logo.svg.svg" alt="Ford Logo" class="mx-auto mt-10 mb-5 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28" />
+      </div>
+     </section>
+     <!---BRAND SECTION END HERE--->
+
+      <!---TOP RATED SECTION--->
+     <section class="bg-background font-inter">
+      <div class="container flex flex-col items-center gap-y-2 mt-10 mb-10">
+        <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-6 mb-4">Top rated rented cars</h2>
+        <p class="max-w-[520px] w-full text-center"> 
+          Find and rent the perfect car near you, from Lagos to Calabar. <br><strong>Web-Fleet</strong> makes your travel smooth, simple, and reliable.
+        </p>
+
+      </div>
+
+      
+      <div id="top-rated-cars" class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto mb-10 py-12" >
+
+        <!---CAR'S CARD GOES HERE--->
+       
+         <div class="w-full aspect-[4/3] overflow-hidden rounded flex items-center justify-center">
+    <img src="${car.image}" alt="${car.name}" class="w-full h-full object-contain " />
+  
+    </div>
+  
+
+        <div class="mt-5 flex flex-col items-center">
+
+          <h3 class="text-lg font-bold my-4">${car.name}</h3>
+
+          <div class="flex items-center gap-6">
+
+
+          <div class="flex items-center gap-2">
+            <img src="../assets/images/seater.svg" alt="Seater" class="w-6 h-6 inline-block" />
+            <p class="text-sm text-gray-600">${car.seater}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <img src="../assets/images/transition.svg" alt="Transition" class="w-6 h-6 inline-block" />
+            <p class="text-sm text-gray-600">${car.transition}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <img src="../assets/images/speed.svg" alt="Speed" class="w-6 h-6 inline-block" />
+            <p class="text-sm text-gray-600">${car.speed}</p>
+          </div>
+          </div>
+          <p class="text-accent my-6 font-semibold text-center ">${car.price}</p>
+          
+          <div class="flex items-center gap-2  font-inter font-thin mt-auto">
+          <button class="bg-accent text-white py-2 px-4 rounded-md">Details</button>
+          <button class="bg-primary text-white py-2 px-4 rounded-md">Book Now</button>
+          </div>
+         </div> 
+          
+                  
+      </div>
+
+     </section>
+
+     <!---HOW IT WORKS SECTION--->
+     <section>
+         <div class="container flex flex-col items-center gap-y-2 mt-10 mb-10">
+            <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-10 mb-4">How it works</h2>
+            <p class="max-w-[520px] w-full text-center"> 
+              Renting a car has never been easier. Just follow these simple steps to get started.
+            </p>
+        </div>
+
+      <div class="container flex  justify-center items-stretch gap-6 mx-auto mb-10 py-12">
+
+          <div class="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-md w-[260px] min-h-[320px]">
+            <img src="../assets/images/choose-location.svg" alt="Choose location" class="w-25 h-25 mb-4" />
+            <h3 class="text-lg font-bold mb-2">Choose location</h3>
+            <p class="text-center">Select your prefferd location where you would be picking up.</p>
+          </div>
+      
+        <div class="flex items-center justify-center w-30">
+          <img src="../assets/images/arrow-1.svg" alt="arrow" class="w-50 h-50">
+        </div>
+
+         <div class="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-md w-[260px] min-h-[320px]">
+          <img src="../assets/images/pick-date.svg" alt="Pick date" class="w-25 h-25 mb-4" />
+          <h3 class="text-lg font-bold mb-2">Pick-up date</h3>
+          <p class="text-center">Pick a date for pick up and drop off.</p>
+        </div>
+
+         <div class="flex items-center justify-center w-30">
+          <img src="../assets/images/arror-2.svg" alt="arrow"  class="w-50 h-50">
+        </div>
+
+          <div class="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-md w-[260px] min-h-[320px]">
+            <img src="../assets/images/book-ride.svg" alt="How it works" class="w-25 h-25 mb-4" />
+            <h3 class="text-lg font-bold mb-2">Book your car </h3>
+            <p class="text-center">Pick up your car and enjoy your ride with confidence, knowing you made the right choice.</p>
+          </div>
+        </div>
+     </section>
+
+      <!---BEST SERVICE SECTION--->
+     <section  class="bg-background font-inter">
+
+      <div class="container flex flex-col items-center gap-y-2 mt-10 mb-10">
+            <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-6 mb-4">Best services and luxury cars</h2>
+            <p class="max-w-[520px] w-full text-center"> 
+              Enjoy premium service and top-tier luxury cars tailored for comfort, class, and reliability, wherever you're headed.
+            </p>
+        </div>
+
+        <div class="container flex flex-col md:flex-row items-center mx-auto mb-10 py-6">
+          <div>
+            <img src="../assets/images/mercedes-benz.svg" alt="mercedes-benz">
+          </div>
+
+          <div>
+            <div class="flex items-center gap-4 p-3 ">
+              <div>
+                <img src="../assets/images/Frame 2087325909.svg" alt="icon">
+              </div>
+              <div class="max-w-[320px] w-full">
+                <h3 class="text-lg font-bold mb-1">
+                  Customer support
+                </h3>
+                <p>
+                  We're here 24/7 to answer your questions and make your rental experience smooth and stress-free.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-3 ">
+              <div>
+                <img src="../assets/images/Frame 2087325910.svg" alt="icon">
+              </div>
+              <div class="max-w-[320px] w-full">
+                <h3 class="text-lg font-bold mb-1">
+                  Many locations
+                </h3>
+                <p>
+                  Reliable whenever you need it  before, during, or after your trip.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-3 ">
+              <div>
+                <img src="../assets/images/Frame 2087325911.svg" alt="icon">
+              </div>
+              <div class="max-w-[320px] w-full">
+                <h3 class="text-lg font-bold mb-1">
+                 Free cancelation
+                </h3>
+                <p>
+                  Cancel your reservation anytime and get a full refund, no questions asked.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+     </section>
+
+      <!--FIND WEB FLEET  SECTION--->
+      <section class="font-inter">
+        <div class="container flex flex-col items-center gap-y-2 mt-10 mb-10">
+            <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-10 mb-4">Find Web Fleet all around Nigeria</h2>
+            <p class="max-w-[520px] w-full text-center"> 
+              With coverage across major cities and growing towns, Web-Fleet brings top-class car rental to your doorstep.
+            </p>
+        </div>
+
+       <div class="flex justify-center items-center flex-col md:flex-row gap-6 mb-10">
+        <input
+          type="text"
+          placeholder="I am looking to rent a car"
+          id="search-car"
+          class="appearance-none max-w-[600px] w-full border border-accent rounded-lg py-2 px-4 pr-10 text-gray-900
+                 focus:outline-none focus:shadow-[0_0_3px_1px_#2e2e2e] transition"
+        />
+        <button id="search-car" class="bg-primary text-white px-16 py-2 rounded-lg">
+      Search
+    </button>
+  </div>
+
+   <!-- State Buttons -->
+  <div id="state-buttons" class="flex flex-wrap justify-center gap-4 mb-6">
+    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300 transition">Lagos</button>
+    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Kano</button>
+    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Abuja</button>
+    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Warri</button>
+    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Akure</button>
+    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Calabar</button>
+  </div>
+
+  <!-- Map Container -->
+    <div id="map" class="max-w-[1170px] w-full h-[500px] rounded-lg my-7 mx-auto">
+
+
+    </div>
+      
+
+    </section>
+
+     <!--WHAT PEOPLE SAY  SECTION--->
+     <section  class="bg-background font-inter">
+
+      <div class="container flex flex-col items-center gap-y-2 mt-10 mb-10">
+            <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-10 mb-4">What people say about us?</h2>
+            <p class="max-w-[520px] w-full text-center"> 
+              Hear from real customers who’ve enjoyed smooth and reliable rides across Nigeria with Web-Fleet.
+
+
+            </p>
+        </div>
+
+       <div class="container">
+    
+         <div class="flex flex-col md:flex-row gap-6 justify-center items-center mx-auto mb-10 py-12">
+           <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center w-[300px] h-[320px]">
+             <img src="../assets/images/Ellipse 1951.png" alt="customer picture">
+             <h4 class="font-bold">Bryan Ray-Jaja</h4>
+             <div class="flex mt-2">
+             <img src="../assets/images/star.svg" alt="star rating" class="">
+              <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+               <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+                <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+                 <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+             </div>
+             <p class="text-gray-600 my-4">Web-Fleet made my car rental experience so easy and convenient!</p>
+           </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center w-[300px] h-[320px]">
+             <img src="../assets/images/Ellipse 1951 (1).png" alt="customer picture">
+             <h4 class="font-bold">Ann Curtis</h4>
+             <div class="flex mt-2">
+             <img src="../assets/images/star.svg" alt="star rating" class="">
+              <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+               <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+                <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+                 <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+             </div>
+             <p class="text-gray-600 my-4"> love the variety of cars available. Highly recommend</p>
+           </div>
+
+           <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center w-[300px] h-[320px]">
+             <img src="../assets/images/Ellipse 1951 (2).png" alt="customer picture">
+             <h4 class="font-bold">Davis Workman</h4>
+             <div class="flex mt-2">
+             <img src="../assets/images/star.svg" alt="star rating" class="">
+              <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+               <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+                <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+                 <img src="../assets/images/star.svg" alt="star rating" class="ml-2">
+             </div>
+             <p class="text-gray-600 my-4">Excellent customer service and support throughout my trip.</p>
+           </div>
+
+         </div>
+       </div>
+     </section>
+
+     <!--Newsletter Section --->
+     <section class=" font-inter">
+       <div class="container flex flex-col items-center gap-y-2 mt-10 mb-10">
+         <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-10 mb-4">Subscribe to our Newsletter</h2>
+         <p class="max-w-[520px] w-full text-center">
+           Stay updated with the latest news and offers from Web-Fleet.
+         </p>
+       </div>
+
+      <div class="flex justify-center items-center flex-col md:flex-row gap-6 mb-20">
+        <input
+          type="text"
+          placeholder="Enter your email"
+          id="search-car"
+          class="appearance-none max-w-[600px] w-full border border-accent rounded-lg py-2 px-4 pr-10 text-gray-900
+                 focus:outline-none focus:shadow-[0_0_3px_1px_#2e2e2e] transition"
+        />
+        <button id="search-car" class="bg-primary text-white px-16 py-2 rounded-lg">
+      Sign up
+    </button>
+  </div>
+     </section>
+  </main>
+
+  <footer>
+      <div class="bg-black text-white py-10">
+        <div class="container mx-auto">
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+            <div class="mx-12">
+              <p>
+                Your destination for the best wheel you need.
+              </p>
+              <div class="mt-4">
+                <img src="../assets/images/Button.svg" alt="Facebook" class="inline-block mx-1">
+                <img src="../assets/images/Button (1).svg" alt="Instagram" class="inline-block mx-1">
+                <img src="../assets/images/Button (2).svg" alt="Twitter" class="inline-block mx-1">
+              </div>
+            </div>
+
+            <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="font-bold text-xl mb-4">Company</h3>
+              <ul>
+                <li>
+                  <a href="#">Careers</a>
+                </li>
+                <li>
+                  <a href="#">About Company</a>
+                </li>
+                 <li>
+                  <a href="#">Privacy & Notice</a>
+                </li>
+                <li>
+                  <a href="#">Terms</a>
+                </li>
+                <li>
+                  <a href="#">Cookie Policy</a>
+                </li>
+              </ul>
+            </div>
+
+             <div>
+              <h3 class="font-bold text-xl mb-4">Support</h3>
+              <ul>
+                <li>
+                  <a href="#">How it works</a>
+                </li>
+                <li>
+                  <a href="#">Pricing</a>
+                </li>
+                 <li>
+                  <a href="#">Help center</a>
+                </li>
+                <li>
+                  <a href="#">Mobile app</a>
+                </li>
+                <li>
+                  <a href="#">Blogs</a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-xl mb-4">Offices</h3>
+              <ul>
+                <li>
+                  <a href="#">Lagos</a>
+                </li>
+                <li>
+                  <a href="#">Kano</a>
+                </li>
+                 <li>
+                  <a href="#">Abuja</a>
+                </li>
+
+            </div>
+
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="mt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+
+          <div class="text-center md:text-left">
+            <p class="text-sm">&copy; 2024 Web Fleet. All rights reserved.</p>
+          </div>
+
+
+          <ul class="flex gap-6 text-sm md:text-base">
+            <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            <li><a href="#" class="hover:underline">Terms of Service</a></li>
+          </ul>
+
+          </div>
+        </div>
+      </div>
+  </footer>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

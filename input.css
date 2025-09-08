@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #b8001f;
+  --color-accent: #7a7a7a;
+  --color-background: #d9d9d9;
+  --color-text: #999999;
+}
+
+@theme {
+  /* ... your custom colors ... */
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-fredoka: 'Fredoka', sans-serif;
+}
