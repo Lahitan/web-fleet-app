@@ -62,7 +62,7 @@ function renderTopRatedCars() {
   topRatedCars.forEach((car) => {
     const card = document.createElement('div');
     card.className =
-      'bg-white rounded-lg shadow-md mb-10 min-h-[600px] flex flex-col justify-between gap-4 items-center p-10 hover:shadow-lg transition-shadow duration-300 ease-in-out';
+      'bg-white rounded-lg shadow-md mb-10 min-h-[300px] md:min-h-[500px] flex flex-col justify-between gap-4 items-center p-10 hover:shadow-lg transition-shadow duration-300 ease-in-out';
 
     // Adding content to the card
     card.innerHTML = `
@@ -80,17 +80,17 @@ function renderTopRatedCars() {
           <div class="flex items-center gap-6">
 
 
-          <div class="flex items-center gap-2">
-            <img src="../assets/images/seater.svg" alt="Seater" class="w-6 h-6 inline-block" />
-            <p class="text-sm text-gray-600">${car.seater}</p>
+           <div class="flex items-center gap-2">
+            <img src="../assets/images/seater.svg" alt="Seater" class=" w-4 h-4 md:w-6 md:h-6 inline-block" />
+            <p class=" text-[12px] md:text-sm text-gray-600">${car.seater}</p>
           </div>
           <div class="flex items-center gap-2">
-            <img src="../assets/images/transition.svg" alt="Transition" class="w-6 h-6 inline-block" />
-            <p class="text-sm text-gray-600">${car.transition}</p>
+            <img src="../assets/images/transition.svg" alt="Transition" class="w-4 h-4 md:w-6 md:h-6 inline-block" />
+            <p class=" text-[12px] md:text-sm text-gray-600">${car.transition}</p>
           </div>
           <div class="flex items-center gap-2">
-            <img src="../assets/images/speed.svg" alt="Speed" class="w-6 h-6 inline-block" />
-            <p class="text-sm text-gray-600">${car.speed}</p>
+            <img src="../assets/images/speed.svg" alt="Speed" class="w-4 h-4 md:w-6 md:h-6 inline-block" />
+            <p class=" text-[12px] md:text-sm text-gray-600">${car.speed}</p>
           </div>
           </div>
           <p class="text-accent my-6 font-semibold text-center ">${car.price}</p>
@@ -154,4 +154,17 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+});
+
+//Mobile menu toggle
+
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuOpenIcon = document.getElementById('menu-open');
+const menuCloseIcon = document.getElementById('menu-close');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+  menuOpenIcon.classList.toggle('hidden');
+  menuCloseIcon.classList.toggle('hidden');
 });

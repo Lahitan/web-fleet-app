@@ -51,36 +51,65 @@
   </head>
   <body>
     <header class="bg-black text-white">
-      <nav
-        class="container flex items-center justify-between p-10 font-poppins"
-      >
-        <div class="logo">
-          <a href="../dist/index.html">
-            <div class="flex gap-2 items-center">
-              <img
-                src="../assets/images/Frame.svg"
-                alt="Web Fleet Logo"
-                class="h-6 w-9 md:h-9 md:w-15 lg:h-10 lg:w-14"
-              />
-              <span class="md:text-lg">Web Fleet</span>
-            </div>
-          </a>
-        </div>
-        <ul class="flex items-center gap-6 text-sm md:text-base lg:text-xl">
-          <li><a href="../dist/index.html">Home</a></li>
-          <li><a href="#">Our services</a></li>
-          <li><a href="#">Fleets</a></li>
-          <li><a href="#">About</a></li>
-          <button class="bg-white text-black px-4 py-2 rounded">
-            <a href="#">Book now</a>
-          </button>
-        </ul>
-      </nav>
+     <nav class="container flex items-center justify-between p-6 font-poppins relative">
+  <!-- Logo -->
+  <div class="logo">
+    <a href="../dist/index.html">
+      <div class="flex gap-2 items-center">
+        <img
+          src="../assets/images/Frame.svg"
+          alt="Web Fleet Logo"
+          class="h-6 w-9 md:h-9 md:w-15 lg:h-10 lg:w-14"
+        />
+        <span class="md:text-lg">Web Fleet</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Desktop Menu -->
+  <ul class="hidden md:flex md:items-center md:gap-6 text-sm md:text-base lg:text-xl">
+    <li><a href="../dist/index.html" class="hover:text-accent transition duration-300">Home</a></li>
+    <li><a href="#" class="hover:text-accent transition duration-300">Our services</a></li>
+    <li><a href="#" class="hover:text-accent transition duration-300">Fleets</a></li>
+    <li><a href="#" class="hover:text-accent transition duration-300">About</a></li>
+    <button class="bg-white text-black px-4 py-2 rounded hover:bg-primary hover:text-white transition duration-300">
+      <a href="#">Book now</a>
+    </button>
+  </ul>
+
+   <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="block md:hidden text-gray-700 focus:outline-none">
+      <!-- Hamburger icon -->
+      <svg id="menu-open" class="w-6 h-6" fill="none" stroke="#ffff" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <!-- X icon -->
+      <svg id="menu-close" class="w-6 h-6 hidden" fill="none" stroke="#ffff" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+  <!-- Mobile Menu (Hidden by Default) -->
+  <ul id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black text-white shadow-lg flex-col items-center gap-4 p-6 md:hidden">
+    <li><a href="../dist/index.html" class="block hover:text-accent my-2">Home</a></li>
+    <li><a href="#" class="block hover:text-accent mb-2 ">Our services</a></li>
+    <li><a href="#" class="block hover:text-accent mb-2">Fleets</a></li>
+    <li><a href="#" class="block hover:text-accent mb-2">About</a></li>
+    <button class="bg-white text-black px-4 py-2 rounded hover:bg-primary hover:text-white transition duration-300">
+      <a href="#">Book now</a>
+    </button>
+  </ul>
+</nav>
+
 
       <!--HERO SECTION-->
       <div class="hero flex justify-center items-center flex-col mt-20">
         <h1
-          class="text-4xl md:text-6xl font-extrabold text-center font-fredoka "
+          class="text-3xl md:text-6xl font-extrabold text-center font-fredoka p-2 "
         >
           Discover the world on wheels <br class="hidden md:block" />with our
           car rental service
@@ -213,43 +242,11 @@
       </div>
 
       
-      <div id="top-rated-cars" class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto mb-10 py-12" >
+      <div id="top-rated-cars" class="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto mb-10 py-12 px-6 md:px-2" >
 
         <!---CAR'S CARD GOES HERE--->
        
-         <div class="w-full aspect-[4/3] overflow-hidden rounded flex items-center justify-center">
-    <img src="${car.image}" alt="${car.name}" class="w-full h-full object-contain " />
-  
-    </div>
-  
-
-        <div class="mt-5 flex flex-col items-center">
-
-          <h3 class="text-lg font-bold my-4">${car.name}</h3>
-
-          <div class="flex items-center gap-6">
-
-
-          <div class="flex items-center gap-2">
-            <img src="../assets/images/seater.svg" alt="Seater" class="w-6 h-6 inline-block" />
-            <p class="text-sm text-gray-600">${car.seater}</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <img src="../assets/images/transition.svg" alt="Transition" class="w-6 h-6 inline-block" />
-            <p class="text-sm text-gray-600">${car.transition}</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <img src="../assets/images/speed.svg" alt="Speed" class="w-6 h-6 inline-block" />
-            <p class="text-sm text-gray-600">${car.speed}</p>
-          </div>
-          </div>
-          <p class="text-accent my-6 font-semibold text-center ">${car.price}</p>
-          
-          <div class="flex items-center gap-2  font-inter font-thin mt-auto">
-          <button class="bg-accent text-white py-2 px-4 rounded-md">Details</button>
-          <button class="bg-primary text-white py-2 px-4 rounded-md">Book Now</button>
-          </div>
-         </div> 
+       
           
                   
       </div>
@@ -265,7 +262,7 @@
             </p>
         </div>
 
-      <div class="container flex  justify-center items-stretch gap-6 mx-auto mb-10 py-12">
+      <div class="container  flex flex-col  md:flex-row lg:flex-row justify-center items-center gap-6 mx-auto mb-10 py-12">
 
           <div class="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-md w-[260px] min-h-[320px]">
             <img src="../assets/images/choose-location.svg" alt="Choose location" class="w-25 h-25 mb-4" />
@@ -361,13 +358,13 @@
       <!--FIND WEB FLEET  SECTION--->
       <section class="font-inter">
         <div class="container flex flex-col items-center gap-y-2 mt-10 mb-10">
-            <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-10 mb-4">Find Web Fleet all around Nigeria</h2>
+            <h2 class="text-black font-extrabold text-2xl md:text-5xl mt-10 mb-4 text-center">Find Web Fleet all around Nigeria</h2>
             <p class="max-w-[520px] w-full text-center"> 
               With coverage across major cities and growing towns, Web-Fleet brings top-class car rental to your doorstep.
             </p>
         </div>
 
-       <div class="flex justify-center items-center flex-col md:flex-row gap-6 mb-10">
+       <div class="flex justify-center items-center flex-col md:flex-row gap-6 mb-10 px-5">
         <input
           type="text"
           placeholder="I am looking to rent a car"
@@ -375,19 +372,19 @@
           class="appearance-none max-w-[600px] w-full border border-accent rounded-lg py-2 px-4 pr-10 text-gray-900
                  focus:outline-none focus:shadow-[0_0_3px_1px_#2e2e2e] transition"
         />
-        <button id="search-car" class="bg-primary text-white px-16 py-2 rounded-lg">
+        <button id="search-car" class="bg-primary text-white px-10  md:px-16 py-2 rounded-lg">
       Search
     </button>
   </div>
 
    <!-- State Buttons -->
   <div id="state-buttons" class="flex flex-wrap justify-center gap-4 mb-6">
-    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300 transition">Lagos</button>
-    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Kano</button>
-    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Abuja</button>
-    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Warri</button>
-    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Akure</button>
-    <button class="state-btn px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Calabar</button>
+    <button class="state-btn px-4 md:px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300 transition">Lagos</button>
+    <button class="state-btn px-4 md:px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Kano</button>
+    <button class="state-btn px-4 md:px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Abuja</button>
+    <button class="state-btn px-4 md:px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Warri</button>
+    <button class="state-btn px-4 md:px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Akure</button>
+    <button class="state-btn px-4 md:px-8 py-2 bg-accent text-white font-medium rounded-lg border border-gray-300  transition">Calabar</button>
   </div>
 
   <!-- Map Container -->
@@ -466,7 +463,7 @@
          </p>
        </div>
 
-      <div class="flex justify-center items-center flex-col md:flex-row gap-6 mb-20">
+      <div class="flex justify-center items-center flex-col md:flex-row gap-6 mb-20 px-5">
         <input
           type="text"
           placeholder="Enter your email"
@@ -474,7 +471,7 @@
           class="appearance-none max-w-[600px] w-full border border-accent rounded-lg py-2 px-4 pr-10 text-gray-900
                  focus:outline-none focus:shadow-[0_0_3px_1px_#2e2e2e] transition"
         />
-        <button id="search-car" class="bg-primary text-white px-16 py-2 rounded-lg">
+        <button id="search-car" class="bg-primary text-white px-10 md:px-16 py-2 rounded-lg">
       Sign up
     </button>
   </div>
@@ -485,8 +482,8 @@
       <div class="bg-black text-white py-10">
         <div class="container mx-auto">
 
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-            <div class="mx-12">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 px-6">
+            <div>
               <p>
                 Your destination for the best wheel you need.
               </p>
