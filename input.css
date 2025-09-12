@@ -13,3 +13,22 @@
   --font-inter: 'Inter', sans-serif;
   --font-fredoka: 'Fredoka', sans-serif;
 }
+
+/* Add keyframes */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Add a custom animation class */
+@utility animate-scroll {
+  animation: scroll 10s linear infinite;
+}
+
+@utility pause-animation {
+  animation-play-state: paused;
+}
