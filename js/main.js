@@ -27,7 +27,7 @@ document.querySelector('#search-button').addEventListener('click', function () {
 const topRatedCars = [
   {
     id: 1,
-    image: '/assets/images/lexus.svg',
+    image: 'dist/assets/images/lexus.svg',
     name: 'Mercedes Benz',
     seater: '5 Seater',
     transition: 'Auto',
@@ -36,7 +36,7 @@ const topRatedCars = [
   },
   {
     id: 2,
-    image: '/assets/images/tesla.svg',
+    image: 'dist/assets/images/tesla.svg',
     name: 'Tesla Model',
     seater: '4 Seater',
     transition: 'Manual',
@@ -45,7 +45,7 @@ const topRatedCars = [
   },
   {
     id: 3,
-    image: '/assets/images/mercedes.svg',
+    image: 'dist/assets/images/mercedes.svg',
     name: 'Lexus',
     seater: '5 Seater',
     transition: 'Auto',
@@ -81,15 +81,15 @@ function renderTopRatedCars() {
 
 
            <div class="flex items-center gap-2 ">
-            <img src="/assets/images/seater.svg" alt="Seater" class="w-6 md:h-6 inline-block" />
+            <img src="dist/assets/images/seater.svg" alt="Seater" class="w-6 md:h-6 inline-block" />
             <p class=" text-[12px] md:text-sm text-gray-600 font-bold">${car.seater}</p>
           </div>
           <div class="flex items-center gap-2">
-            <img src="/assets/images/transition.svg" alt="Transition" class="w-6 md:h-6 inline-block" />
+            <img src="dist/assets/images/transition.svg" alt="Transition" class="w-6 md:h-6 inline-block" />
             <p class=" text-[12px] md:text-sm text-gray-600 font-bold">${car.transition}</p>
           </div>
           <div class="flex items-center gap-2">
-            <img src="/assets/images/speed.svg" alt="Speed" class="w-6 md:h-6 inline-block" />
+            <img src="dist/assets/images/speed.svg" alt="Speed" class="w-6 md:h-6 inline-block" />
             <p class=" text-[12px] md:text-sm text-gray-600 font-bold">${car.speed}</p>
           </div>
           </div>
