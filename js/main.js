@@ -77,20 +77,20 @@ function renderTopRatedCars() {
 
           <h3 class="text-lg font-bold my-4">${car.name}</h3>
 
-          <div class="flex items-center gap-6">
+          <div class="flex items-center gap-6 flex-wrap">
 
 
-           <div class="flex items-center gap-2">
-            <img src="../assets/images/seater.svg" alt="Seater" class=" w-4 h-4 md:w-6 md:h-6 inline-block" />
-            <p class=" text-[12px] md:text-sm text-gray-600">${car.seater}</p>
+           <div class="flex items-center gap-2 ">
+            <img src="../assets/images/seater.svg" alt="Seater" class="w-6 md:h-6 inline-block" />
+            <p class=" text-[12px] md:text-sm text-gray-600 font-bold">${car.seater}</p>
           </div>
           <div class="flex items-center gap-2">
-            <img src="../assets/images/transition.svg" alt="Transition" class="w-4 h-4 md:w-6 md:h-6 inline-block" />
-            <p class=" text-[12px] md:text-sm text-gray-600">${car.transition}</p>
+            <img src="../assets/images/transition.svg" alt="Transition" class="w-6 md:h-6 inline-block" />
+            <p class=" text-[12px] md:text-sm text-gray-600 font-bold">${car.transition}</p>
           </div>
           <div class="flex items-center gap-2">
-            <img src="../assets/images/speed.svg" alt="Speed" class="w-4 h-4 md:w-6 md:h-6 inline-block" />
-            <p class=" text-[12px] md:text-sm text-gray-600">${car.speed}</p>
+            <img src="../assets/images/speed.svg" alt="Speed" class="w-6 md:h-6 inline-block" />
+            <p class=" text-[12px] md:text-sm text-gray-600 font-bold">${car.speed}</p>
           </div>
           </div>
           <p class="text-accent my-6 font-semibold text-center ">${car.price}</p>
